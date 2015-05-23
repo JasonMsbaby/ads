@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/color_red"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <org.kymjs.kjframe.widget.RoundImageView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/btn_head_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/defaulthead" >
+    </org.kymjs.kjframe.widget.RoundImageView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+       />
+
+</LinearLayout>
