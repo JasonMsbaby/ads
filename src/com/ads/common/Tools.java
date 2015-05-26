@@ -14,8 +14,10 @@ import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.PreferenceHelper;
 import org.kymjs.kjframe.utils.SystemTool;
 
+import android.R.bool;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
 
@@ -24,6 +26,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 public class Tools {
+	
+	
+	
 
 	/**
 	 * 复制数据库
@@ -41,7 +46,6 @@ public class Tools {
 			if (!f.exists()) {
 				f.mkdir();
 			}
-
 			try {
 				// 得到 assets 目录下我们实现准备好的 SQLite 数据库作为输入流
 				InputStream is = context.getAssets().open(DB_NAME);
@@ -54,7 +58,6 @@ public class Tools {
 				while ((length = is.read(buffer)) > 0) {
 					os.write(buffer, 0, length);
 				}
-
 				// 关闭文件流
 				os.flush();
 				os.close();
@@ -98,7 +101,15 @@ public class Tools {
 			}
 		}
 		return true;
-
+	}
+	/**
+	 * 检查某个文件是否存在
+	 * @param path
+	 * @return
+	 */
+	public static boolean isFileExists(String path){
+		File file=new File(path);
+		return file.exists();
 	}
 
 	/**
@@ -143,4 +154,24 @@ public class Tools {
 	public static String getSystemDir() {
 		return Environment.getExternalStorageDirectory().getAbsolutePath()+"/ads/";
 	}
+	/**
+	 * 获取头像本地存储位置
+	 */
+	public static String getHeadImgUrl(){
+		return getSystemDir()+"headImg.jpg";
+	}
+	/**
+	 * 字节流转换为bitmap
+	 * @param b
+	 * @return
+	 */
+	public static Bitmap Bytes2Bimap(byte[] b) {
+        if (b.length != 0) {
+        	BitmapFactory.Options options = new BitmapFactory.Options();
+        	options.inSampleSize = 2 ;
+        	return BitmapFactory.decodeByteArray(b, 0, b.length,options);
+        } else {
+            return null;
+        }
+    }
 }

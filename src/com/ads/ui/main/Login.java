@@ -144,7 +144,7 @@ public class Login extends KJActivity {
 		String pwd = edit_login_pwd.getText().toString().trim();
 		if (SystemTool.checkNet(getApplicationContext())) {
 			dialog.show("正在登陆...");
-			Http.get("login/loginCheck",
+			Http.post(this,"login/loginCheck",
 					Http.addParams("name,pwd", name, DESUtil.MD5(pwd)),
 					new AsyncHttpResponseHandler() {
 						public void onSuccess(String content) {
@@ -203,7 +203,7 @@ public class Login extends KJActivity {
 			if (SystemTool.checkNet(getApplicationContext())) {
 				dialog.show("正在注册");
 				String role = txt_regist_role.getText().toString().trim();
-				Http.get("login/regist",
+				Http.post(this,"login/regist",
 						Http.addParams("phone,pwd,role", phone, pwd1, role),
 						new AsyncHttpResponseHandler() {
 							@Override

@@ -5,7 +5,7 @@
     android:background="@color/color_light"
     android:orientation="vertical" >
 
-    <include layout="@layout/back" />
+    <include layout="@layout/back_submit" />
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -31,7 +31,7 @@
                     android:orientation="vertical" >
 
                     <com.ads.custom.view.RoundAngleImageView
-                        android:id="@+id/img_person_user_headimg"
+                        android:id="@+id/img_person_guest_headimg"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_margin="5dp"
@@ -168,7 +168,6 @@
             <!-- 店铺名称 -->
 
             <LinearLayout
-                android:id="@+id/person_guest_shop_name"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:background="@color/color_white"
@@ -189,6 +188,7 @@
                     android:textColor="@color/color_black" />
 
                 <LinearLayout
+                    android:id="@+id/person_guest_shop_name"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -216,7 +216,6 @@
             <!-- 店面环境 -->
 
             <LinearLayout
-                android:id="@+id/person_guest_shop_enviroment"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:background="@color/color_white"
@@ -237,6 +236,7 @@
                     android:textColor="@color/color_black" />
 
                 <LinearLayout
+                    android:id="@+id/person_guest_shop_enviroment"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -264,7 +264,6 @@
             <!-- 详细地址 -->
 
             <LinearLayout
-                android:id="@+id/person_guest_shop_address"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:background="@color/color_white"
@@ -285,6 +284,7 @@
                     android:textColor="@color/color_black" />
 
                 <LinearLayout
+                    android:id="@+id/person_guest_shop_address"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -312,7 +312,6 @@
             <!-- 电话 -->
 
             <LinearLayout
-                android:id="@+id/person_guest_shop_phone"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:background="@color/color_white"
@@ -333,13 +332,14 @@
                     android:textColor="@color/color_black" />
 
                 <LinearLayout
+                    android:id="@+id/person_guest_shop_phone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right" >
 
                     <TextView
-                        android:id="@+id/txt_person_guest_shop_gMarketPhone"
+                        android:id="@+id/txt_person_guest_shop_MarketPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="阿斯顿"
@@ -361,7 +361,6 @@
             <!-- 简介 -->
 
             <LinearLayout
-                android:id="@+id/person_guest_shop_detail"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:background="@color/color_white"
@@ -382,6 +381,7 @@
                     android:textColor="@color/color_black" />
 
                 <LinearLayout
+                    android:id="@+id/person_guest_shop_detail"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

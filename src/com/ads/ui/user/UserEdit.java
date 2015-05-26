@@ -102,7 +102,7 @@ public class UserEdit extends KJActivity {
 
 	@Override
 	public void initData() {
-		SAVEPATH = Tools.getSystemDir() + "headImg";
+		SAVEPATH = Tools.getSystemDir() + "headImg/";
 		personServices = new PersonServices(this);
 		txt_title.setText("信息编辑");
 		uId = personServices.getCurrentUser("uId");
@@ -204,7 +204,7 @@ public class UserEdit extends KJActivity {
 		String alipay = txt_person_user_info_alipay.getText().toString().trim();
 		String bank = txt_person_user_info_bank.getText().toString().trim();
 		if (SystemTool.checkNet(this)) {
-			Http.get(
+			Http.post(this,
 					"user/edit",
 					Http.addParams(
 							"u.uId,u.uName,u.uSex,u.uAge,u.uPhone,u.uEmail,u.uIdCard,u.uBankId,u.uAliPay",
@@ -374,7 +374,7 @@ public class UserEdit extends KJActivity {
 			}
 			img_person_user_info_headimg.setImageDrawable(drawable);
 			if (SystemTool.checkNet(this)) {
-				Http.get(
+				Http.post(this,
 						"user/edit",
 						Http.addParams("u.uHeadImg,u.uId", SAVEPATH
 								+ IMAGE_FILE_NAME, uId), new AsyncHttpResponseHandler() {

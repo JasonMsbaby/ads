@@ -44,11 +44,11 @@
     </LinearLayout>
 
     <Button 
+        android:id="@+id/back_submit"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:id="@+id/back_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提交"

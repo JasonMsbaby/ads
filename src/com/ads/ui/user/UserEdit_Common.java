@@ -42,17 +42,18 @@ public class UserEdit_Common extends KJActivity {
 	public void widgetClick(View v) {
 		switch (v.getId()) {
 		case R.id.back:
+			setResult(5);
 			finish();
 			break;
 		case R.id.back_submit:
 			String content = txt_content.getText().toString().trim();
 			if (!content.equals("")) {
-					Intent intent = new Intent(UserEdit_Common.this, UserEdit.class);
-					intent.putExtra("content", content);
-					intent.putExtra("id", id);
-					setResult(3, intent);
-					finish();
-				
+				Intent intent = new Intent(UserEdit_Common.this, UserEdit.class);
+				intent.putExtra("content", content);
+				intent.putExtra("id", id);
+				setResult(3, intent);
+				finish();
+
 			} else {
 				ViewInject.toast("请输入内容后提交");
 			}

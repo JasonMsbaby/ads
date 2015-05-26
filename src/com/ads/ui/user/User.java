@@ -216,7 +216,8 @@ public class User extends KJActivity implements OnItemSelectedListener {
 
 							if (SystemTool.checkNet(getApplicationContext())) {
 								User.this.dialog.show("正在提交");
-								Http.get(
+								Http.post(
+										getApplicationContext(),
 										"user/edit",
 										Http.addParams(
 												"u.uDept,u.uProvince,u.uCity,u.uArea,u.uId,u.uAddress",
@@ -241,6 +242,7 @@ public class User extends KJActivity implements OnItemSelectedListener {
 												ViewInject.toast("更新失败,错误代码-"
 														+ errorNo);
 											}
+
 											@Override
 											public void onFinish() {
 												User.this.dialog.hide();

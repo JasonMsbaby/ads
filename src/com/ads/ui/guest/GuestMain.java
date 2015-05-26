@@ -1,9 +1,12 @@
 package com.ads.ui.guest;
 
+import java.io.File;
+
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.widget.RoundImageView;
 
+import com.ads.common.Tools;
 import com.ads.dao.PersonServices;
 import com.ads.main.R;
 
@@ -45,7 +48,7 @@ public class GuestMain extends KJActivity {
 			break;
 		}
 	}
-	
+
 	/**
 	 * 跳转到商家中心页面
 	 */
@@ -58,24 +61,13 @@ public class GuestMain extends KJActivity {
 	 * 初始化头像
 	 */
 	private void initHeadImg() {
-		String img = personServices.getCurrentUser("gHeadImg");
-		if (img == null || img.equals("0")) {// 如果用户头像为空，则显示默认头像
-			btn_head_img.setImageResource(R.drawable.defaulthead);
-		} else {// 不为空则显示预先设置的头像
+		String img = Tools.getHeadImgUrl();
+		if (new File(img).exists()) {
 			Drawable drawable = new BitmapDrawable(img);
 			btn_head_img.setImageDrawable(drawable);
+		} else {
+			btn_head_img.setImageResource(R.drawable.defaulthead);
 		}
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == 1) {
-			int id = data.getIntExtra("id", 0);
-			String content = data.getStringExtra("content");
-			TextView textView = (TextView) findViewById(id);
-			textView.setText(content);
-		}
-		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 }

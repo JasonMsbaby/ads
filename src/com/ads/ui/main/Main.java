@@ -24,7 +24,7 @@ public class Main extends KJActivity {
 	public void setRootView() {
 		personServices = new PersonServices(this);
 		final String res = personServices.getCurrentUser();
-		if (res.equals("0")) {
+		if (res==null||res.equals("0")) {
 			Intent intent = new Intent(Main.this, Login.class);
 			startActivity(intent);
 			finish();
@@ -42,7 +42,7 @@ public class Main extends KJActivity {
 			}
 			if (SystemTool.checkNet(getApplicationContext())) {
 				dialog.show("正在校验用户名和密码");
-				Http.get("login/loginCheck",
+				Http.post(this,"login/loginCheck",
 						Http.addParams("name,pwd", name, pwd),
 						new AsyncHttpResponseHandler() {
 							@Override
@@ -74,7 +74,6 @@ public class Main extends KJActivity {
 									finish();
 								}
 							}
-
 							@Override
 							public void onFailure(int statusCode,
 									Throwable error, String content) {
@@ -82,7 +81,6 @@ public class Main extends KJActivity {
 								Jump(res);
 
 							}
-
 							@Override
 							public void onFinish() {
 								dialog.hide();
